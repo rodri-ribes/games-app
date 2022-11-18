@@ -14,7 +14,7 @@ export default function Content_detail_developer() {
 
     const getData = async (id) => {
         try {
-            const data = await axios.get(`https://api.rawg.io/api/developers/${id}?key=${REACT_APP_KEY?.slice(1, 33)}`)
+            const data = await axios.get(`https://api.rawg.io/api/developers/${id}?key=${REACT_APP_KEY?.slice(0, 33)}`)
             setDeveloper(data.data)
         } catch (error) {
             console.log(error)
