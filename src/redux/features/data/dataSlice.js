@@ -52,7 +52,7 @@ export const getGames = (page = 1) => async (dispatch) => {
 
 
     try {
-        const resp = await axios.get(`https://api.rawg.io/api/games?key=${REACT_APP_KEY.slice(1, 33)}&page=${page}&page_size=20`);
+        const resp = await axios.get(`https://api.rawg.io/api/games?key=${REACT_APP_KEY?.slice(1, 33)}&page=${page}&page_size=20`);
         dispatch(addGames(resp.data));
     } catch (error) {
         console.log(error)
@@ -63,7 +63,7 @@ export const getDevelopers = (page = 1) => async (dispatch) => {
 
 
     try {
-        const resp = await axios.get(`https://api.rawg.io/api/developers?key=${REACT_APP_KEY.slice(1, 33)}&page=${page}&page_size=20`);
+        const resp = await axios.get(`https://api.rawg.io/api/developers?key=${REACT_APP_KEY?.slice(1, 33)}&page=${page}&page_size=20`);
         dispatch(addDevelopers(resp.data));
     } catch (error) {
         console.log(error)
@@ -74,7 +74,7 @@ export const getPlatforms = (page = 1) => async (dispatch) => {
 
 
     try {
-        const resp = await axios.get(`https://api.rawg.io/api/platforms?key=${REACT_APP_KEY.slice(1, 33)}&page=${page}&page_size=20`);
+        const resp = await axios.get(`https://api.rawg.io/api/platforms?key=${REACT_APP_KEY?.slice(1, 33)}&page=${page}&page_size=20`);
         dispatch(addPlatforms(resp.data));
     } catch (error) {
         console.log(error)
@@ -85,7 +85,7 @@ export const getStores = (page = 1) => async (dispatch) => {
 
 
     try {
-        const resp = await axios.get(`https://api.rawg.io/api/stores?key=${REACT_APP_KEY.slice(1, 33)}&page=${page}&page_size=20`);
+        const resp = await axios.get(`https://api.rawg.io/api/stores?key=${REACT_APP_KEY?.slice(1, 33)}&page=${page}&page_size=20`);
         dispatch(addStores(resp.data));
     } catch (error) {
         console.log(error)
@@ -94,7 +94,7 @@ export const getStores = (page = 1) => async (dispatch) => {
 
 export const getGameSearch = (title) => async (dispatch) => {
     try {
-        const resp = await axios.get(`https://api.rawg.io/api/games?search=${title}&key=${REACT_APP_KEY.slice(1, 33)}`);
+        const resp = await axios.get(`https://api.rawg.io/api/games?search=${title}&key=${REACT_APP_KEY?.slice(1, 33)}`);
         dispatch(addSearch(resp.data.results));
     } catch (error) {
         console.log(error)
