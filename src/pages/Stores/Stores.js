@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getStores } from '../../redux/features/data/dataSlice'
 import style from './Stores.module.scss'
 import Spinner from '../../components/Spinner/Spinner.js'
-import db from '../../db.json';
+import CardStore from '../../components/CardStore/CardStore'
+
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, A11y } from 'swiper';
@@ -12,17 +13,16 @@ import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import 'swiper/scss/autoplay';
-import Card_store from '../../components/Card_store/Card_store'
 
 export default function Stores() {
 
     let dispatch = useDispatch()
+    let stores = useSelector(state => state.data.stores)
 
     useEffect(() => {
-        dispatch(getStores(1))
-    }, [])
+        if (!stores) dispatch(getStores(1))
+    }, [dispatch, stores])
 
-    let stores = useSelector(state => state.data.stores)
 
     return (
         <div className={style.container}>
@@ -30,7 +30,6 @@ export default function Stores() {
                 {
                     stores?.results?.length > 0 ?
                         <Swiper
-                            // install Swiper modules
                             modules={[Navigation, Pagination, A11y, Autoplay]}
                             spaceBetween={50}
                             slidesPerView={3}
@@ -45,7 +44,7 @@ export default function Stores() {
                             {stores?.results?.filter(r => r.games_count > 5000).map(j => {
                                 return (
                                     <SwiperSlide key={j.id}>
-                                        <Card_store
+                                        <CardStore
                                             slug={j.slug}
                                             key={j.id}
                                             title={j.name}
@@ -65,7 +64,7 @@ export default function Stores() {
                     stores?.results?.length > 0 ?
                         stores?.results?.map(j => {
                             return (
-                                <Card_store
+                                <CardStore
                                     slug={j.slug}
                                     key={j.id}
                                     title={j.name}

@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
-import style from './Card_game.module.scss'
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
+import React from 'react'
+import style from './CardGame.module.scss'
 import { Link } from 'react-router-dom'
 
 
@@ -10,7 +9,7 @@ import { SiLinux, SiPlaystation, SiXbox, SiNintendo } from 'react-icons/si'
 import { BsWindows, BsApple, BsPhoneFill } from 'react-icons/bs'
 
 
-export default function Card_game({ id, title, image, object, rating, release, genres, rating_top, ratings_count, kickList }) {
+export default function CardGame({ id, title, image, object, rating, release, genres, rating_top, ratings_count, kickList }) {
 
 
     let platforms = {

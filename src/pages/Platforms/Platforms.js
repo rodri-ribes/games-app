@@ -5,7 +5,7 @@ import style from './Platforms.module.scss'
 import Spinner from '../../components/Spinner/Spinner.js'
 import { useSearchParams } from 'react-router-dom'
 import db from '../../db.json';
-import Card_platform from '../../components/Card_platform/Card_platform'
+import CardPlatform from '../../components/CardPlatform/CardPlatform'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, A11y } from 'swiper';
@@ -77,7 +77,7 @@ export default function Platforms() {
                             {platforms?.results?.filter(r => r.games_count > 5000).map(j => {
                                 return (
                                     <SwiperSlide key={j.id}>
-                                        <Card_platform
+                                        <CardPlatform
                                             slug={j.slug}
                                             key={j.id}
                                             title={j.name}
@@ -97,7 +97,7 @@ export default function Platforms() {
                     platforms?.results?.length > 0 ?
                         platforms?.results?.map(j => {
                             return (
-                                <Card_platform
+                                <CardPlatform
                                     slug={j.slug}
                                     key={j.id}
                                     title={j.name}

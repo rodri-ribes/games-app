@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import Card_game from '../../components/Card_game/Card_game'
+import CardGame from '../../components/CardGame/CardGame'
 import { getDevelopers, getGames, getPlatforms, getStores } from '../../redux/features/data/dataSlice'
 import style from './Home.module.scss'
 import Spinner from '../../components/Spinner/Spinner.js'
-import Card_store from '../../components/Card_store/Card_store'
-import Card_platform from '../../components/Card_platform/Card_platform'
-import Card_developer from '../../components/Card_developer/Card_developer'
+import CardStore from '../../components/CardStore/CardStore'
+import CardPlatform from '../../components/CardPlatform/CardPlatform'
+import CardDeveloper from '../../components/CardDeveloper/CardDeveloper'
 
 
 export default function Home() {
@@ -33,7 +33,7 @@ export default function Home() {
                     games?.results?.length > 0 ?
                         games?.results?.slice(0, 8).map(j => {
                             return (
-                                <Card_game
+                                <CardGame
                                     id={j.id}
                                     title={j.name}
                                     image={j.background_image}
@@ -57,7 +57,7 @@ export default function Home() {
                     developers?.results?.length > 0 ?
                         developers?.results?.slice(0, 8).map(j => {
                             return (
-                                <Card_developer
+                                <CardDeveloper
                                     slug={j.slug}
                                     key={j.id}
                                     title={j.name}
@@ -78,7 +78,7 @@ export default function Home() {
                     platforms?.results?.length > 0 ?
                         platforms?.results?.slice(0, 8).map(j => {
                             return (
-                                <Card_platform
+                                <CardPlatform
                                     slug={j.slug}
                                     key={j.id}
                                     title={j.name}
@@ -97,7 +97,7 @@ export default function Home() {
                     stores?.results?.length > 0 ?
                         stores?.results?.slice(0, 8).map(j => {
                             return (
-                                <Card_store
+                                <CardStore
                                     slug={j.slug}
                                     key={j.id}
                                     title={j.name}

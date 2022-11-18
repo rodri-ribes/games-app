@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import Card_game from '../../components/Card_game/Card_game'
+import CardGame from '../../components/CardGame/CardGame'
 import { getGames } from '../../redux/features/data/dataSlice'
 import style from './Games.module.scss'
 import Spinner from '../../components/Spinner/Spinner.js'
@@ -74,10 +74,10 @@ export default function Games() {
                                 "disableOnInteraction": false
                             }}
                         >
-                            {db?.games?.filter(r => r.rating > 4.40).map(j => {
+                            {db?.games?.filter(r => r.rating > 4.40).map((j, i) => {
                                 return (
-                                    <SwiperSlide key={j.id}>
-                                        <Card_game
+                                    <SwiperSlide key={i}>
+                                        <CardGame
                                             id={j.id}
                                             title={j.name}
                                             image={j.background_image}
@@ -103,7 +103,7 @@ export default function Games() {
                     games?.results?.length > 0 ?
                         games?.results?.map(j => {
                             return (
-                                <Card_game
+                                <CardGame
                                     id={j.id}
                                     title={j.name}
                                     image={j.background_image}

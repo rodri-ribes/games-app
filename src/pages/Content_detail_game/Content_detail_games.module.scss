@@ -328,7 +328,7 @@
                                 text-align: center;
                                 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
                                 width: 100px;
-                                background-color: rgb(0, 0, 255, 0.800);
+                                background-color: rgb(0, 0, 255, 0.600);
                                 padding: 0.5rem;
                                 align-self: flex-start;
                                 text-decoration: none;
@@ -339,6 +339,8 @@
     
                                 &:hover{
                                     transform: translateY(-4px);
+                                background-color: rgb(0, 0, 255, 0.800);
+
                                 }
                             }
 

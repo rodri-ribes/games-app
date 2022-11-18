@@ -5,7 +5,7 @@ import style from './Developers.module.scss'
 import Spinner from '../../components/Spinner/Spinner.js'
 import { useSearchParams } from 'react-router-dom'
 import db from '../../db.json';
-import Card_developer from '../../components/Card_developer/Card_developer'
+import CardDeveloper from '../../components/CardDeveloper/CardDeveloper'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, A11y } from 'swiper';
@@ -77,7 +77,7 @@ export default function Developers() {
                             {db?.developers?.filter(r => r.games_count > 100).map(j => {
                                 return (
                                     <SwiperSlide key={j.id}>
-                                        <Card_developer
+                                        <CardDeveloper
                                             slug={j.slug}
                                             key={j.id}
                                             title={j.name}
@@ -97,7 +97,7 @@ export default function Developers() {
                     developers?.results?.length > 0 ?
                         developers?.results?.map(j => {
                             return (
-                                <Card_developer
+                                <CardDeveloper
                                     slug={j.slug}
                                     key={j.id}
                                     title={j.name}
