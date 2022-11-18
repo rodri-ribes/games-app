@@ -1,6 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const { REACT_APP_KEY } = process.env
+
+
 export const dataSlice = createSlice({
     name: "data",
     initialState: {
@@ -49,7 +52,7 @@ export const getGames = (page = 1) => async (dispatch) => {
 
 
     try {
-        const resp = await axios.get(`https://api.rawg.io/api/games?key=78a77816307b4853af2ef2e542d5aa7d&page=${page}&page_size=20`);
+        const resp = await axios.get(`https://api.rawg.io/api/games?key=${REACT_APP_KEY.slice(1, 33)}&page=${page}&page_size=20`);
         dispatch(addGames(resp.data));
     } catch (error) {
         console.log(error)
@@ -60,7 +63,7 @@ export const getDevelopers = (page = 1) => async (dispatch) => {
 
 
     try {
-        const resp = await axios.get(`https://api.rawg.io/api/developers?key=78a77816307b4853af2ef2e542d5aa7d&page=${page}&page_size=20`);
+        const resp = await axios.get(`https://api.rawg.io/api/developers?key=${REACT_APP_KEY.slice(1, 33)}&page=${page}&page_size=20`);
         dispatch(addDevelopers(resp.data));
     } catch (error) {
         console.log(error)
@@ -71,7 +74,7 @@ export const getPlatforms = (page = 1) => async (dispatch) => {
 
 
     try {
-        const resp = await axios.get(`https://api.rawg.io/api/platforms?key=78a77816307b4853af2ef2e542d5aa7d&page=${page}&page_size=20`);
+        const resp = await axios.get(`https://api.rawg.io/api/platforms?key=${REACT_APP_KEY.slice(1, 33)}&page=${page}&page_size=20`);
         dispatch(addPlatforms(resp.data));
     } catch (error) {
         console.log(error)
@@ -82,7 +85,7 @@ export const getStores = (page = 1) => async (dispatch) => {
 
 
     try {
-        const resp = await axios.get(`https://api.rawg.io/api/stores?key=78a77816307b4853af2ef2e542d5aa7d&page=${page}&page_size=20`);
+        const resp = await axios.get(`https://api.rawg.io/api/stores?key=${REACT_APP_KEY.slice(1, 33)}&page=${page}&page_size=20`);
         dispatch(addStores(resp.data));
     } catch (error) {
         console.log(error)
@@ -91,7 +94,7 @@ export const getStores = (page = 1) => async (dispatch) => {
 
 export const getGameSearch = (title) => async (dispatch) => {
     try {
-        const resp = await axios.get(`https://api.rawg.io/api/games?search=${title}&key=78a77816307b4853af2ef2e542d5aa7d`);
+        const resp = await axios.get(`https://api.rawg.io/api/games?search=${title}&key=${REACT_APP_KEY.slice(1, 33)}`);
         dispatch(addSearch(resp.data.results));
     } catch (error) {
         console.log(error)

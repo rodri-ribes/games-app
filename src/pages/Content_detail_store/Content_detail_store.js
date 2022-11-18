@@ -4,6 +4,8 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import Spinner from '../../components/Spinner/Spinner'
 
+const { REACT_APP_KEY } = process.env
+
 
 export default function Content_detail_store() {
 
@@ -13,7 +15,7 @@ export default function Content_detail_store() {
 
     const getData = async (id) => {
         try {
-            const data = await axios.get(`https://api.rawg.io/api/stores/${id}?key=78a77816307b4853af2ef2e542d5aa7d`)
+            const data = await axios.get(`https://api.rawg.io/api/stores/${id}?key=${REACT_APP_KEY.slice(1, 33)}`)
             setStore(data.data)
         } catch (error) {
             console.log(error)
